@@ -1,0 +1,37 @@
+doctype html
+html(lang='es')
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous")
+        title asd
+    body
+        nav(class="navbar navbar-expand-sm bg-light justify-content-center")
+            ul(class="navbar-nav")
+                li(class="nav-item")
+                    a(class="nav-link" href="/") AGREGAR ITEM
+                li(class="nav-item")
+                    a(class="nav-link" href="/agLista") AGREGAR LISTA
+                li(class="nav-item")
+                    a(class="nav-link" href="/listas") VER LISTAS
+        .container
+          include form.pug
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous")
+        script(src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js")
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")
+        script.
+          window.onload = function(){
+            var fecha = new Date();
+            var mes = fecha.getMonth()+1;
+            var dia = fecha.getDate();
+            var ano = fecha.getFullYear();
+            if(dia<10)
+                dia='0'+dia;
+            if(mes<10)
+                mes='0'+mes;
+            document.getElementById('fechaC').value=ano+"-"+mes+"-"+dia;
+            document.getElementById('fechaL').value=ano+"-"+mes+"-"+(dia+7)
+          }

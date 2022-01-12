@@ -1,0 +1,3 @@
+redireciones en los metodos post de agregar item y lista.
+
+crear los metodos de update y delete.

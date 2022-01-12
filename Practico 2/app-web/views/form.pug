@@ -1,0 +1,64 @@
+if(item)
+    form(method="post" action="agregarItem")
+        .form-group
+            input#idItem(type="hidden" name="idItem" class="form-control")
+        .form-group
+            label(for="titulo") Titulo:
+            input#titulo(type="text" name="titulo" class="form-control")
+        .form-group
+            label(for="lista") Lista:
+            select#lista(class="form-control" name="lista")
+                option(value="") a
+                each val in lista
+                    option(value=val.id) #{val.titulo}
+        .form-group
+            label(for="descripcion") Descripcion:
+            input#descripcion(type="text" name="descripcion" class="form-control")
+        .form-group
+            label(for="prioridad") Prioridad:
+            select#prioridad(class="form-control" name="prioridad")
+                option(value="Baja") Baja
+                option(value="Media") Media
+                option(value="Alta") Alta
+        .form-group
+            label(for="estado") Estado:
+            select#estado(class="form-control" name="estado")
+                option(value="Sin resolver") Sin resolver
+                if(modificar)
+                    option(value="Resolviendo") Resolviendo
+                    option(value="Resuelta") Resuelta
+        .form-group
+            label(for="fechaC") Fecha de creacion:
+            input#fechaC(type="date" name="fechaC" class="form-control" readonly="readonly")
+        .form-group
+            label(for="fechaL") Fecha limite:
+            input#fechaL(type="date" name="fechaL" class="form-control")
+        br
+        if(modificar)
+            button(type="submit" class="btn btn-primary" formaction="updateItem") MODIFICAR
+            button(type="submit" class="btn btn-primary" formaction="deleteItem") ELIMINAR
+        else
+            button(type="submit" class="btn btn-primary" style="margin-left: 46%;") AGREGAR
+else
+    form(method="post" action="agregarList")
+        .form-group
+            input#idList(type="hidden" name="idList" class="form-control")
+        .form-group
+            label(for="titulo") Titulo:
+            input#titulo(type="text" name="titulo" class="form-control")
+        .form-group
+            label(for="estado") Estado:
+            select#estado(class="form-control" name="estado")
+                option(value="Sin resolver") Sin resolver
+        .form-group
+            label(for="fechaC") Fecha de creacion:
+            input#fechaC(type="date" name="fechaC" class="form-control" readonly="readonly")
+        .form-group
+            label(for="fechaR") Fecha Resolucion:
+            input#fechaR(type="date" name="fechaR" class="form-control")
+        br
+        if(modificar)
+            button(type="submit" class="btn btn-primary" formaction="updateList") MODIFICAR
+            button(type="submit" class="btn btn-primary" formaction="deleteList") ELIMINAR
+        else
+            button(type="submit" class="btn btn-primary" style="margin-left: 46%;") AGREGAR
